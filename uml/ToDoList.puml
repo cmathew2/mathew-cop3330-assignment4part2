@@ -1,0 +1,65 @@
+@startuml
+'https://plantuml.com/class-diagram
+class App{
+    + main()
+    + start()
+ }
+ class ToDoList{
+    - string listName
+    - ArrayList <items> allItems
+
+    + addItem(Item)
+    + deleteItem(Item)
+    + displayItems()
+    + displayComplete()
+    + displayIncomplete()
+    + renameList()
+    }
+class ListAll{
+    -ArrayList <toDoLists> allToLists
+
+    +addList(ToDoList)
+    +deleteList(ToDoList)
+    +saveList()
+    +saveListAll()
+    +loadList()
+    +loadListAll()
+
+}
+class Item{
+    -boolean complete
+    -string itemName
+    -string itemDesc
+    -date dueDate
+
+    +renameItem()
+    +editDesc()
+    +editDate()
+    +isComplete(Boolean)
+}
+class Controller{
+    +addListClicked(ActionEvent)
+    +deleteListClicked(ActionEvent)
+    +editListClicked(ActionEvent)
+    +saveListClicked(ActionEvent)
+    +loadListClicked(ActionEvent)
+
+    +saveListAllClicked(ActionEvent)
+    +loadListAllClicked(ActionEvent)
+
+    +addItemClicked(ActionEvent)
+    +deleteItemClicked(ActionEvent)
+    +editItemClicked(ActionEvent)
+    +setCompleteItemClicked(ActionEvent)
+
+    +displayCompleteItems(ActionEvent)
+    +displayIncompleteItems(ActionEvent)
+}
+
+javafx.Application <|-- App
+App -- Controller
+
+Controller *--> ListAll
+ListAll *--> ToDoList
+ToDoList *--> Item
+@enduml
