@@ -14,7 +14,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #d9e1f9;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.FXMLController">
     <children>
         <AnchorPane prefHeight="69.0" prefWidth="700.0" style="-fx-background-color: #a0b4f0;">
@@ -24,18 +23,18 @@
                         <Font name="Mongolian Baiti" size="51.0" />
                     </font>
                 </Text>
-                <Button layoutX="615.0" layoutY="19.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #435898;" text="Load" textFill="WHITE" />
-                <Button layoutX="530.0" layoutY="19.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #435898;" text="Save" textFill="WHITE" />
+                <Button layoutX="615.0" layoutY="19.0" mnemonicParsing="false" onAction="#loadListClicked" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #435898;" text="Load" textFill="WHITE" />
+                <Button layoutX="530.0" layoutY="19.0" mnemonicParsing="false" onAction="#saveListClicked" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #435898;" text="Save" textFill="WHITE" />
             </children>
         </AnchorPane>
-        <TableView layoutX="14.0" layoutY="120.0" prefHeight="312.0" prefWidth="595.0">
+        <TableView fx:id="listTable" layoutX="14.0" layoutY="120.0" prefHeight="312.0" prefWidth="595.0">
             <columns>
                 <TableColumn prefWidth="128.00003337860107" text="Date" />
                 <TableColumn prefWidth="385.5999298095703" text="Desc." />
                 <TableColumn prefWidth="65.59991455078125" text="Status" />
             </columns>
         </TableView>
-        <Button layoutX="620.0" layoutY="120.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #CE2733;" text="Clear" textFill="WHITE" />
+        <Button layoutX="620.0" layoutY="120.0" mnemonicParsing="false" onAction="#clearListClicked" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #CE2733;" text="Clear" textFill="WHITE" />
         <GridPane alignment="CENTER" layoutX="14.0" layoutY="444.0" prefHeight="42.0" prefWidth="678.0" style="-fx-background-color: white;">
             <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="111.19998168945312" minWidth="10.0" prefWidth="67.19998168945312" />
@@ -47,24 +46,24 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #435898;" text="Add" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="3">
+                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addItemClicked" prefWidth="100.0" style="-fx-background-color: #435898;" text="Add" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="3">
                     <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </GridPane.margin>
                 </Button>
-                <DatePicker prefHeight="26.0" prefWidth="187.0" GridPane.columnIndex="2" />
-                <TextField GridPane.columnIndex="1">
+                <DatePicker fx:id="dueDatePicker" prefHeight="26.0" prefWidth="187.0" promptText="Select due date..." GridPane.columnIndex="2" />
+                <TextField fx:id="itemDescriptionField" promptText="Enter Item Description here..." GridPane.columnIndex="1">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </TextField>
-                <CheckBox mnemonicParsing="false" />
+                <CheckBox mnemonicParsing="false" onAction="#CompletedBox" />
             </children>
             <padding>
                 <Insets bottom="1.0" right="1.0" />
             </padding>
         </GridPane>
-        <Button layoutX="620.0" layoutY="401.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #CE2733;" text="Delete" textFill="WHITE" />
-        <Button layoutX="620.0" layoutY="361.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #435898;" text="Edit" textFill="WHITE" />
+        <Button layoutX="620.0" layoutY="401.0" mnemonicParsing="false" onAction="#deleteItemClicked" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #CE2733;" text="Delete" textFill="WHITE" />
+        <Button layoutX="620.0" layoutY="361.0" mnemonicParsing="false" onAction="#editItemClicked" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #435898;" text="Edit" textFill="WHITE" />
     </children>
 </AnchorPane>

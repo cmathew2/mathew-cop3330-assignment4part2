@@ -4,21 +4,55 @@
  */
 package ucf.assignments;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 public class FXMLController {
 
     @FXML
-    private ResourceBundle resources;
+    private DatePicker dueDatePicker;
 
     @FXML
-    private URL location;
+    private TextField itemDescriptionField;
 
     @FXML
-    void initialize() {
+    private TableView<?> listTable;
+
+    @FXML
+    void CompletedBox(ActionEvent event) {
+
+    }
+
+    @FXML
+    void addItemClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void clearListClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void deleteItemClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void editItemClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void loadListClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void saveListClicked(ActionEvent event) {
 
     }
 
