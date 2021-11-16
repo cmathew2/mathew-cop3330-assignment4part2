@@ -6,20 +6,19 @@ class App{
  }
  class ToDoList{
     - string listName
-    - ArrayList <items> allItems
+    - ArrayList[100] <items> allItems
 
     + addItem(Item)
     + deleteItem(Item)
+    + editItem(Item)
     + displayItems()
     + displayComplete()
     + displayIncomplete()
-    + renameList()
     }
 class ListAll{
     -ArrayList <toDoLists> allToLists
 
-    +addList(ToDoList)
-    +deleteList(ToDoList)
+    +clearList(ToDoList)
     +saveList()
     +saveListAll()
     +loadList()
@@ -28,32 +27,24 @@ class ListAll{
 }
 class Item{
     -boolean complete
-    -string itemName
-    -string itemDesc
+    -string itemDesc [256]
     -date dueDate
 
-    +renameItem()
     +editDesc()
     +editDate()
     +isComplete(Boolean)
 }
 class Controller{
-    +addListClicked(ActionEvent)
-    +deleteListClicked(ActionEvent)
-    +editListClicked(ActionEvent)
     +saveListClicked(ActionEvent)
     +loadListClicked(ActionEvent)
-
-    +saveListAllClicked(ActionEvent)
-    +loadListAllClicked(ActionEvent)
+    +clearListClicked(ActionEvent)
 
     +addItemClicked(ActionEvent)
     +deleteItemClicked(ActionEvent)
     +editItemClicked(ActionEvent)
     +setCompleteItemClicked(ActionEvent)
 
-    +displayCompleteItems(ActionEvent)
-    +displayIncompleteItems(ActionEvent)
+    +displayItemsClicked(ActionEvent)
 }
 
 javafx.Application <|-- App
